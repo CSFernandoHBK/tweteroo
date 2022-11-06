@@ -3,6 +3,16 @@ import cors from "cors";
 
 const app = express();
 
-app.get("/teste", (req, res) => {res.send("rodando um testezinho ne pae")})
+app.use(cors());
+app.use(express.json());
 
-app.listen(4000, () => console.log("App running in port: 4000"));
+const tweets = [{username: "fernando", tweet: "meu nome eh esse mesmo"},
+{username: "fernando", tweet: "meu nome eh esse mesmo"},
+{username: "fernando", tweet: "meu nome eh esse mesmo"}]
+
+app.post("/sign-up", (req, res) => {console.log(req.body)})
+
+app.get("/tweets", (req, res) => {
+    res.send(tweets)})
+
+app.listen(5000, () => console.log("App running in port: 5000"));
