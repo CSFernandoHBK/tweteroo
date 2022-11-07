@@ -23,10 +23,14 @@ app.post("/sign-up", (req, res) => {
 })
 
 app.post("/tweets", (req, res) => {
-    
+    const dadosTweet = req.body;
+    tweets.push(dadosTweet);
+    res.send(tweets);
 })
 
 app.get("/tweets", (req, res) => {
-    res.send(tweets)})
+
+    res.send(tweets)
+})
 
 app.listen(5000, () => console.log("App running in port: 5000"));
